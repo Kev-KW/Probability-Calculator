@@ -1,7 +1,7 @@
 # Vesteria Crit Roll Simulator
  ![Image Alt](https://github.com/Kev-KW/Vesteria-Cursed-Scroll-Simulator/blob/68cf6d0ec49d3474b9eea93bf504311da11bd318/assets/uwuScroll.png)
 
-This Python script simulates rolling items in the game *Vesteria* to reach a desired **critical chance (CC)**. It calculates the total cost in gold required to achieve a target CC, taking into account items, scrolls, undo scrolls, holy items, resets, and Lmods.
+This Python script simulates cursing for cc% in *Vesteria* to reach a **desired critical chance**. It calculates the total cost in gold required to achieve a target CC, taking into account items, scrolls, undo scrolls, holy items, resets, and Lmods.
 
 **WARNING!** going above 40 desired cc is almost guaranteed to freeze the program! Be sure to keep # of runs at **one**  to ensure the program doesn't crash or go indefinitely for very high cc. 
 
@@ -33,6 +33,7 @@ Additionally, take results with a **heavy grain of salt**. Values used here are 
 
 ## How to run
 1. **Required packages and version used**
+
    Copy and paste the required packages into your **terminal**
 
    - Install Pillow for Python (cross-platform)
@@ -43,8 +44,8 @@ Additionally, take results with a **heavy grain of salt**. Values used here are 
 
    - Python Version used (Not necessary): `3.11.5`
      
-2. **Adjustable Costs**  
-   At the top of the Calculator.py, you can change the cost of each resource according to the current game economy:
+3. **Adjustable Costs**  
+   At the top of the Calculator.py, you can change the cost of items to the current game economy:
    ```python
    itemCost = 10
    scrollCost = 0.5
@@ -53,9 +54,9 @@ Additionally, take results with a **heavy grain of salt**. Values used here are 
    resetCost = 2
    lModCost = 50
 
-3. **Execute Program**
+4. **Execute Program**
 
-   Once you've adjusted the prices of items, simply run `ParameterExecutable.py` in your IDE. Again, 45+ cc will cause longer than usual runtime per run (Will appear to have crashed)
+   Once you've adjusted the prices of items, simply run `ParameterExecutable.py` in your IDE. Again, 45+ cc will take longer than usual runtime per run (Will appear to have crashed)
 
 ## Simulation Function
 
@@ -80,9 +81,9 @@ The function:
 
 - Each item has 7 roll slots.
 - Rolls are categorized as:
-  - **Explosion** → The item is destroyed.
-  - **Failed roll** → Roll did not add stats.
-  - **Successful roll** → Adds to critical chance.
+  - **Exploded** → The item is destroyed.
+  - **Failed** → Roll did not add stats or removed a slot.
+  - **Successful** → Adds to critical chance.
 - Critical chance per roll is calculated using `critCreation()`:
   - 0–80 → +5 CC
   - 81–128 → +10 CC
@@ -104,7 +105,7 @@ The function:
 - Holys used
 - Resets used
 - Lmods used
-- Total cost in gold (and in thousands for convenience)
+- Total cost in gold and platinum
 
 ## Contributers
 - Me :>
