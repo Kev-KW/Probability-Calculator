@@ -1,15 +1,20 @@
+# Last updated 8/14/2025
+# Future features: Add option to change to abr, mdi, and having a combination of all 3
 import random
 
-# Change Values in adjustment to current economy
-# Values are weighed in Gold
+# CHANGE VALUES HERE #
+# ------------------ #
 itemCost = 15
 scrollCost = .5
 undoCost = 100
 holyCost = 5
 resetCost = 2
 lModCost = 50
+# ------------------ #
+
 
 # DO NOT CHANGE
+# ------------------------- #
 globalItemRolls = 0
 currentRollSlot = 0
 failedRollSlot = 6
@@ -18,10 +23,8 @@ itemRolls = [0,0,0,0,0,0,0]
 critRoll = False
 BLEWW = False
 modThreshholdBool = False
+# ------------------------- #
 
-# What crit percentage before the use of undos (Ensures you don't spam undos on a 5cc item bruh)
-
-# Critical Chance desired, Undo scroll threshhold, and Lmod threshhold
 def calculate(critDesired, undoThreshHold, modifierThreshold):
     
     """
@@ -34,7 +37,8 @@ def calculate(critDesired, undoThreshHold, modifierThreshold):
     Returns:
         list: The itemRolls array plus total cost at the end.
     """
-    # DO NOT CHANGE
+    # DO NOT CHANGE #
+    # ------------------------------------------------------------------------ #
     global itemCount, scrollCount, undoCount, holyCount, resetCount, lModCount
     global critAmount, currentRollSlot, failedRollSlot, itemRolls
     global critRoll, BLEWW, modThreshholdBool, failDestroy, failBlow
@@ -54,9 +58,11 @@ def calculate(critDesired, undoThreshHold, modifierThreshold):
     BLEWW = False
     modThreshholdBool = False
     checkerCrit = 0
-
-    failDestroy = 20
-    failBlow = 40
+    # ------------------------------------------------------------------------ #
+    
+    # Change fail percentage if curious 
+    failDestroy = 20 # Default 20
+    failBlow = 40    # Default 40
 
     while True: 
         

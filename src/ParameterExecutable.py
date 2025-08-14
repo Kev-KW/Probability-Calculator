@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import messagebox
 import Calculator
 import os
 from PIL import Image, ImageTk
@@ -10,6 +9,8 @@ def run_simulation():
         undoThreshold = int(entry_undo.get())
         modifierThreshold = int(entry_mod.get())
         totalRuns = int(entry_runs.get())
+        if desiredCrit < 0 or undoThreshold < 0 or modifierThreshold < 0 or totalRuns < 0:
+            raise ValueError('')
         warning_label.config(text="45+ cc and WILL throttle program at any # of runs")
     except ValueError:
         warning_label.config(text="⚠ Please enter valid integers!")
@@ -29,24 +30,27 @@ def run_simulation():
     
     avgCost = totalCost / totalRuns / 1000
     output_text.insert(tk.END, f"Average cost for {desiredCrit}cc: {avgCost}p\n")
-
-# Main window
+    if(avgCost < 100):
+        output_text.insert(tk.END, f"So cheap!")
+    else:
+        output_text.insert(tk.END, f"Goodluck affording that gang X_X")
+        
+#Main
 root = tk.Tk()
 root.title("Vesteria Crit Roll Simulation. Made by PlitZap")
 
-# Set icon
+#Peak icon bruh
 icon_path = os.path.join("assets", "Cursed_scroll_new.png")
 icon = tk.PhotoImage(file=icon_path)
 root.iconphoto(False, icon)
 
-# Colors
 bg_color = "#2e1a3b"
 fg_color = "#d74c4c"
 entry_bg = "#3b2450"
 entry_fg = "#d74c4c"
 root.configure(bg=bg_color)
 
-# Input frame for centering
+
 input_frame = tk.Frame(root, bg=bg_color)
 input_frame.pack(pady=15)
 
@@ -72,16 +76,16 @@ entry_runs.insert(0, "10")
 
 tk.Button(input_frame, text="Run Simulation", command=run_simulation, bg="#4b2a6e", fg=fg_color).grid(row=4, column=0, columnspan=2, pady=10)
 
-# Warning label
-warning_label = tk.Label(root, text="", bg=bg_color, fg="#ff5555", font=("Arial", 10))
+#Big nono
+warning_label = tk.Label(root, text="45+ cc and WILL throttle program at any # of runs", bg=bg_color, fg="#ff5555", font=("Arial", 10))
 warning_label.pack(pady=(0, 5))
 
-# Frame for text + stationary image
+#Chad frame
 text_frame = tk.Frame(root, width=500, height=400, bg=bg_color)
 text_frame.pack(pady=20)
 text_frame.pack_propagate(False)
 
-# Load and process image
+#Chad summoned
 image_path = os.path.join("assets", "Chad_Vesteria.png")
 img = Image.open(image_path)
 img = img.resize((int(img.width*0.7), int(img.height*0.7)), Image.Resampling.LANCZOS)
@@ -91,12 +95,10 @@ alpha = img.split()[3]
 alpha = alpha.point(lambda p: int(p * 0.05))
 img.putalpha(alpha)
 tk_img = ImageTk.PhotoImage(img)
-
-# Place stationary image behind text
 bg_label = tk.Label(text_frame, image=tk_img, bg=bg_color)
 bg_label.place(relx=0.5, rely=0.5, anchor="center")
 
-# Container for Text + Scrollbar inside the text_frame
+#Scroll bar
 container = tk.Frame(text_frame, bg="#3b2450")
 container.place(relx=0.5, rely=0.5, anchor="center")
 
@@ -111,10 +113,7 @@ output_text.pack(side="left", fill="both")
 
 scrollbar.config(command=output_text.yview)
 
-# Keep reference to image
-text_frame.image_ref = tk_img
 
-# Lock window size
 root.resizable(False, False)
 root.bind("<F11>", lambda e: None)
 root.bind("<Escape>", lambda e: None)
