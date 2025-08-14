@@ -1,4 +1,5 @@
 # Vesteria Crit Roll Simulator
+https://github.com/Kev-KW/Vesteria-Cursed-Scroll-Simulator/blob/e706acbf23accc50eea9860543bc6f0dd8ebec91/assets/Cursed_scroll_new.png
 
 This Python script simulates rolling items in the game *Vesteria* to reach a desired **critical chance (CC)**. It calculates the total cost in gold required to achieve a target CC, taking into account items, scrolls, undo scrolls, holy items, resets, and Lmods.
 
