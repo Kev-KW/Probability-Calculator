@@ -99,3 +99,7 @@ The function:
 - Resets used
 - Lmods used
 - Total cost in gold (and in thousands for convenience)
+
+## Contributers
+- Me :>
+  - Give me upvote in gold in-game <3 (PlitZap, Kev)
