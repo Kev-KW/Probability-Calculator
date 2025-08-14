@@ -29,20 +29,21 @@ The GUI application provides only the **estimated cost** of rolling items to rea
 
 Additionally, take results with a **heavy grain of salt**. Values used here are from the wiki and may not **reflect** the in-game behavior. Since the program only takes critical chance into account, many other variables are not considered such as `mdi%`, `abr%`, `atk`, and `+stats`.
 
-## Requirements
-Copy and paste the required packages into your **terminal**
 
-- Install Pillow for Python (cross-platform)
-  - `pip install Pillow`
 
-- For Linux users: install Tkinter support
-  - `sudo apt-get install python3-tk`
+## How to run
+1. **Required packages and version used**
+   Copy and paste the required packages into your **terminal**
 
-- Python Version used: `3.11.5`
+   - Install Pillow for Python (cross-platform)
+     - `pip install Pillow`
 
-## How It Works
+   - For Linux users: install Tkinter support
+     - `sudo apt-get install python3-tk`
 
-1. **Adjustable Costs**  
+   - Python Version used (Not necessary): `3.11.5`
+     
+2. **Adjustable Costs**  
    At the top of the Calculator.py, you can change the cost of each resource according to the current game economy:
    ```python
    itemCost = 10
@@ -52,8 +53,9 @@ Copy and paste the required packages into your **terminal**
    resetCost = 2
    lModCost = 50
 
-2. **Execute Program**
-   Once you've adjusted the prices of items, simply run ParameterExecutable.py in your IDE
+3. **Execute Program**
+
+   Once you've adjusted the prices of items, simply run `ParameterExecutable.py` in your IDE. Again, 45+ cc will cause longer than usual runtime per run (Will appear to have crashed)
 
 ## Simulation Function
 
@@ -88,7 +90,7 @@ The function:
 - Thresholds dynamically affect failure chances (`failBlow` and `failDestroy`) and Lmod usage.
 - Remaining/failed attempts will not be `replenished` if a desired cc is achieved
   - For example, with a desired cc of 25, roles can be shown as:
-  - [-2, -2, 10, 5, 10, 0, 0]
+  - [-1, -1, 10, 5, 10, 0, 0]
 
 ---
 
@@ -107,3 +109,4 @@ The function:
 ## Contributers
 - Me :>
   - Gimmie upvote and gold in-game!!!  (PlitZap, Kev)
+![Image Alt](https://github.com/Kev-KW/Vesteria-Cursed-Scroll-Simulator/blob/fa887e64422f6e50cba8fa1938db06c3b524806c/assets/Stylized_uwu_emoticon.svg.png)
