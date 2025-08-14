@@ -27,8 +27,6 @@ This Python script simulates rolling items in the game *Vesteria* to reach a des
 
 The GUI application provides only the **estimated cost** of rolling items to reach the desired critical chance. It does **not display detailed in-game mechanics, slot-by-slot results, or item-specific statistics**.  
 
-For more in-depth information, including rolls per slot, number of undos, holys, resets, Lmods used, and other statistics, run the simulation from the **console** using the `calculate()` function in `Calculator.py` and view the printed summary.
-
 Additionally, take results with a **heavy grain of salt**. Values used here are from the wiki and may not **reflect** the in-game behavior. Since the program only takes critical chance into account, many other variables are not considered such as `mdi%`, `abr%`, `atk`, and `+stats`.
 
 ## Requirements
@@ -53,6 +51,9 @@ Copy and paste the required packages into your **terminal**
    holyCost = 5
    resetCost = 2
    lModCost = 50
+
+2. **Execute Program**
+   Once you've adjusted the prices of items, simply run ParameterExecutable.py in your IDE
 
 ## Simulation Function
 
