@@ -10,7 +10,7 @@ def run_simulation():
         undoThreshold = int(entry_undo.get())
         modifierThreshold = int(entry_mod.get())
         totalRuns = int(entry_runs.get())
-        warning_label.config(text="Higher cc and runs will severely throttle program")
+        warning_label.config(text="45+ cc and WILL throttle program at any # of runs")
     except ValueError:
         warning_label.config(text="⚠ Please enter valid integers!")
         return
@@ -20,9 +20,11 @@ def run_simulation():
     
     for i in range(totalRuns):
         output_text.insert(tk.END, f"Trial {i+1}\n----------------------\n")
+        print(f"Trial {i+1}")
         resultCost = Calculator.calculate(desiredCrit, undoThreshold, modifierThreshold)
-        totalCost += resultCost
-        output_text.insert(tk.END, f"Cost: {resultCost}\n\n")
+        totalCost += resultCost[7]
+        output_text.insert(tk.END, f"Cost: {resultCost[7]/1000}p\n")
+        output_text.insert(tk.END, "Item Stats: " + ", ".join(str(resultCost[i]) for i in range(7)) + "\n\n")
         output_text.update()
     
     avgCost = totalCost / totalRuns / 1000
@@ -30,7 +32,7 @@ def run_simulation():
 
 # Main window
 root = tk.Tk()
-root.title("Vesteria Crit Roll Simulation")
+root.title("Vesteria Crit Roll Simulation. Made by PlitZap")
 
 # Set icon
 icon_path = os.path.join("assets", "Cursed_scroll_new.png")
@@ -46,7 +48,7 @@ root.configure(bg=bg_color)
 
 # Input frame for centering
 input_frame = tk.Frame(root, bg=bg_color)
-input_frame.pack(pady=15)  # move down a little, centered horizontally
+input_frame.pack(pady=15)
 
 tk.Label(input_frame, text="Desired Crit Chance:", bg=bg_color, fg=fg_color).grid(row=0, column=0, sticky="e", padx=5, pady=5)
 entry_crit = tk.Entry(input_frame, bg=entry_bg, fg=entry_fg, insertbackground=fg_color)
@@ -94,11 +96,22 @@ tk_img = ImageTk.PhotoImage(img)
 bg_label = tk.Label(text_frame, image=tk_img, bg=bg_color)
 bg_label.place(relx=0.5, rely=0.5, anchor="center")
 
-# Text widget on top of image
-output_text = tk.Text(text_frame, height=20, width=50, bg="#3b2450", fg=fg_color, insertbackground=fg_color)
-output_text.place(relx=0.5, rely=0.5, anchor="center")
+# Container for Text + Scrollbar inside the text_frame
+container = tk.Frame(text_frame, bg="#3b2450")
+container.place(relx=0.5, rely=0.5, anchor="center")
 
-# Keep reference
+scrollbar = tk.Scrollbar(container)
+scrollbar.pack(side="right", fill="y")
+
+output_text = tk.Text(
+    container, height=20, width=50, bg="#3b2450", fg=fg_color,
+    insertbackground=fg_color, yscrollcommand=scrollbar.set
+)
+output_text.pack(side="left", fill="both")
+
+scrollbar.config(command=output_text.yview)
+
+# Keep reference to image
 text_frame.image_ref = tk_img
 
 # Lock window size

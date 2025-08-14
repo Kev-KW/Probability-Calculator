@@ -3,6 +3,8 @@
 
 This Python script simulates rolling items in the game *Vesteria* to reach a desired **critical chance (CC)**. It calculates the total cost in gold required to achieve a target CC, taking into account items, scrolls, undo scrolls, holy items, resets, and Lmods.
 
+**WARNING!** going above 40 desired cc is almost guaranteed to freeze the program! Be sure to keep # of runs at **one**  to ensure the program doesn't crash or go indefinitely for very high cc. 
+
 ---
 
 ## Features
@@ -103,4 +105,4 @@ The function:
 
 ## Contributers
 - Me :>
-  - Give me upvote and gold in-game <3 (PlitZap, Kev)
+  - Gimmie upvote and gold in-game!!!  (PlitZap, Kev)
