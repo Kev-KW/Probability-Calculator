@@ -54,6 +54,7 @@ Additionally, take results with a **heavy grain of salt**. Values used here are 
    lModCost = 50
 
 3. **Execute Program**
+
    Once you've adjusted the prices of items, simply run ParameterExecutable.py in your IDE
    Again, 45+ cc will cause longer than usual runtime per run (Will appear to have crashed)
 
