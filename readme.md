@@ -102,4 +102,4 @@ The function:
 
 ## Contributers
 - Me :>
-  - Give me upvote in gold in-game <3 (PlitZap, Kev)
+  - Give me upvote and gold in-game <3 (PlitZap, Kev)
