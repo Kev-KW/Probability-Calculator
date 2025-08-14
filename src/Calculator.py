@@ -1,17 +1,17 @@
 import random
-import keyboard
 
-globalItemRolls = 0
-
-itemCost = 10
+# Change Values in adjustment to current economy
+# Values are weighed in Gold
+itemCost = 15
 scrollCost = .5
 undoCost = 100
 holyCost = 5
 resetCost = 2
 lModCost = 50
 
-critAmount = 0
 
+# DO NOT CHANGE
+globalItemRolls = 0
 currentRollSlot = 0
 failedRollSlot = 6
 itemRolls = [0,0,0,0,0,0,0]
