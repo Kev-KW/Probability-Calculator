@@ -90,7 +90,7 @@ The function:
 - Thresholds dynamically affect failure chances (`failBlow` and `failDestroy`) and Lmod usage.
 - Remaining/failed attempts will not be `replenished` if a desired cc is achieved
   - For example, with a desired cc of 25, roles can be shown as:
-  - [-2, -2, 10, 5, 10, 0, 0]
+  - [-1, -1, 10, 5, 10, 0, 0]
 
 ---
 
@@ -109,3 +109,4 @@ The function:
 ## Contributers
 - Me :>
   - Gimmie upvote and gold in-game!!!  (PlitZap, Kev)
+![Image Alt](https://github.com/Kev-KW/Vesteria-Cursed-Scroll-Simulator/blob/fa887e64422f6e50cba8fa1938db06c3b524806c/assets/Stylized_uwu_emoticon.svg.png)
